@@ -1,0 +1,29 @@
+.right{
+  float: right;
+}
+
+img{
+  display:block;
+  margin: 0 auto;
+}
+
+pre{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.col-left{
+  float: left;
+  width: 50%;
+}
+
+.col-right{
+  float: right;
+  width: 50%;
+}
+

@@ -1,0 +1,28 @@
+{% macro build() %}
+  <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light">
+    <span class="navbar-brand">
+      <img src="{{ url_for('static', filename='favicon/favicon.ico') }}" width="30" height="30" id='inline' class="align-top" alt="">
+      Brian's Data Science Site
+    </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav mr-auto">
+        <li class='nav-link {% if request.path == '/' %}active{% endif %}' id='home-link'><a class='nav-link' href={{ url_for('main.index') }}>Home</a></li>
+        <li class='nav-link {%  if request.path == '/projects' %}active{% endif %}' id="projects"><a class='nav-link' href={{ url_for('main.projects') }}>Data Science Projects</a></li>
+        <li class='nav-link {%  if request.path == '/about-me' %}active{% endif %}' id="about-me"><a class='nav-link' href="{{ url_for('main.about_me') }}">About me</a></li>
+        <li class='nav-link {%  if request.path == '/resume' %}active{% endif %}' id="resume"><a class='nav-link' href={{ url_for('main.resume') }}>Resume</a></li>
+      </ul>
+    <!--
+      <form id='search-form' class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            <input id='search-bar' class="form-control" placeholder="Search"/>
+          </div>
+        </div>
+      </form>-->
+    </div>
+  </nav>
+{% endmacro %}

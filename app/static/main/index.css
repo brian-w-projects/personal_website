@@ -1,0 +1,28 @@
+#page{
+    margin-top: 10px;
+}
+
+.nav-pills li {
+    margin-left: 10px;
+}
+
+.right{
+  float: right;
+}
+
+p.border{
+    padding: 5px;
+}
+
+.about-pic{
+    margin-left: 10px;
+}
+
+#inline{
+    display: inline;
+
+}
+
+.disabled:hover{
+    cursor: not-allowed;
+}

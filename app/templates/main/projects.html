@@ -1,0 +1,57 @@
+{% extends 'macros/base.html' %}
+
+{% block title %}
+  - Projects
+{% endblock %}
+
+{% block content %}
+  <div id="page">
+    <div class="container-fluid">
+      <div class="col-offset-1 col-12">
+        <div class="jumbotron">
+          <h1>Projects</h1>
+        </div>
+      </div>
+      <div class="col-offset-1 col-12">
+        <div class="card">
+          <div class="card-body">
+            Here you will find a variety of sample projects I have completed. These projects are either small or large in
+            scope. Each project has a separate page describing the task, the workflow and the outcome. Projects may include
+            a video if it is necessary for the project.
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Small Projects</h5>
+              <div class="card-text">
+                <ul>
+                  <li><b>News Service Predictor</b> - Use NLP to determine which news service wrote a tweet based on it's text</li>
+                  <li><b>Hockey Playoff Predictor (10/01/2018)</b> - Machine learning was used to predict which teams will make the playoffs for the 2018-2019 season</li>
+                  <li><b>Font Color Predictor (09/28/2018)</b> - Machine learning was used to determine best font color based on background color</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Large Projects</h5>
+              <div class="card-text">
+                <ul>
+                  <li><b>Blockbuster Movie Boxoffice (06/01/2018)</b> - Data exploration of recent blockbuster movies</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

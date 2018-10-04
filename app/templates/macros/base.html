@@ -1,0 +1,28 @@
+{% import 'macros/navbar.html' as navbar %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brian Weinfeld's Data Science Page {%  block title %}{% endblock %}</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="{{ url_for('static', filename='fontawesome/css/font-awesome.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='main/index.css') }}" rel="stylesheet"/>
+  <link href="{{ url_for('static', filename='progress/nprogress.css') }}" rel="stylesheet"/>
+</head>
+<body>
+  {{  navbar.build() }}
+
+  {% block content %}
+  {% endblock %}
+
+  {{ moment.include_jquery() }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='progress/nprogress.js') }}"></script>
+  {{ moment.include_moment() }}
+  <script src="{{ url_for('static', filename='main/index.js') }}"></script>
+</body>
+</html>
