@@ -12,6 +12,7 @@ def send_email(**kwargs):
     from_email = Email('brian.weinfeld@gmail.com')
     to_email = Email('brian.weinfeld@gmail.com')
     subject = "Personal Website Form Submission"
-    content = Content('text/plain', render_template('static/email/email.txt', **kwargs))
+    # content = Content('text/plain', render_template('static/email/email.txt', **kwargs))
+    content = Content('text/plain', 'test test test')
     mail = Mail(from_email, subject, to_email, content)
     sg.client.mail.send.post(request_body=mail.get())
