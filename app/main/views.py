@@ -36,10 +36,9 @@ def projects():
     small = db.session.query(Projects) \
         .filter(Projects.small == 1) \
         .order_by(desc(Projects.id))
-    # large = db.session.query(Projects) \
-    #     .filter(Projects.small == 0) \
-    #     .order_by(desc(Projects.id))
-    large = small
+    large = db.session.query(Projects) \
+        .filter(Projects.small == 0) \
+        .order_by(desc(Projects.id))
     return render_template('main/projects.html', small=small, large=large, form=form)
 
 
