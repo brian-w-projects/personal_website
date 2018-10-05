@@ -6,6 +6,7 @@ from slugify import slugify
 from datetime import datetime
 
 
+print('Entering...')
 app = create_app(os.environ.get('CONFIG') or 'development')
 with app.app_context():
     db.drop_all()
@@ -27,6 +28,9 @@ with app.app_context():
                 db.session.rollback()
                 print(e)
 
+
+    print('Projects completed...')
+
     file = os.path.abspath(os.path.join(folder, 'tags.csv'))
     with open(os.path.abspath(file), encoding='utf-8') as file:
 
@@ -39,6 +43,8 @@ with app.app_context():
                 db.session.rollback()
                 print(e)
 
+    print('Tags completed...')
+
     file = os.path.abspath(os.path.join(folder, 'project_tags.csv'))
     with open(os.path.abspath(file), encoding='utf-8') as file:
 
@@ -50,3 +56,6 @@ with app.app_context():
             except Exception as e:
                 db.session.rollback()
                 print(e)
+
+    print('Poject Tags completed...')
+    print('Finished...')
