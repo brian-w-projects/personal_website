@@ -1,7 +1,7 @@
 {% extends 'macros/base.html' %}
 
 {% block title %}
-  - Projects
+  - Portfolio
 {% endblock %}
 
 {% block content %}
@@ -9,15 +9,16 @@
     <div class="container-fluid">
       <div class="col-offset-1 col-12">
         <div class="jumbotron">
-          <h1>Projects</h1>
+          <h1>Portfolio</h1>
         </div>
       </div>
+      {{ super() }}
       <div class="col-offset-1 col-12">
         <div class="card">
           <div class="card-body">
-            Here you will find a variety of sample projects I have completed. These projects are either small or large in
-            scope. Each project has a separate page describing the task, the workflow and the outcome. Projects may include
-            a video if it is necessary for the project.
+            Here you will find a variety of projects of mine from both graduate school and personal work. Each project
+            has a seperate page describing the project, my workflow and the results of the project. There will also
+            be a link to the github repo for the project and a video if necessary.
           </div>
         </div>
       </div>
@@ -25,7 +26,7 @@
     <br/>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-lg-6 mb-3">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Small Projects</h5>
@@ -39,7 +40,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-lg-6">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Large Projects</h5>

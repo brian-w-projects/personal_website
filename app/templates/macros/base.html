@@ -11,14 +11,71 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="{{ url_for('static', filename='fontawesome/css/font-awesome.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='main/index.css') }}" rel="stylesheet"/>
+  <link href="{{ url_for('static', filename='main/photos.css') }}" rel="stylesheet"/>
   <link href="{{ url_for('static', filename='progress/nprogress.css') }}" rel="stylesheet"/>
 </head>
 <body>
   {{  navbar.build() }}
+  {{ modal.build(form) }}
 
   {% block content %}
+    {{ modal.flash(get_flashed_messages(with_categories=true)) }}
+      <div class="col-offset-1 col-12 d-none d-lg-block">
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item">
+            <a class="nav-link active stay" href="{{ url_for('static', filename='downloads/resume.pdf') }}" target="_blank"><i class='fa fa-download fa-x'></i> Resume Download</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active stay" href="https://www.linkedin.com/in/brian-weinfeld/" target="_blank"><i class='fa fa-linkedin fa-x'></i> Linkedin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active stay" href="https://www.github.com/brian-w-projects" target="_blank"><i class='fa fa-github fa-x'></i> Github</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-offset-1 col-12 d-xs-block d-lg-none">
+        <ul class="nav nav-pills flex-column" aria-orientation="vertical">
+          <li class="nav-item">
+            <a class="nav-link active stay" href="{{ url_for('static', filename='downloads/resume.pdf') }}" target="_blank"><i class='fa fa-download fa-x'></i> Resume Download</a>
+          </li>
+          <br/>
+          <li class="nav-item">
+            <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
+          </li>
+          <br/>
+          <li class="nav-item">
+            <a class="nav-link active stay" href="https://www.linkedin.com/in/brian-weinfeld/" target="_blank"><i class='fa fa-linkedin fa-x'></i> Linkedin</a>
+          </li>
+          <br/>
+          <li class="nav-item">
+            <a class="nav-link active stay" href="https://www.github.com/brian-w-projects" target="_blank"><i class='fa fa-github fa-x'></i> Github</a>
+          </li>
+        </ul>
+      </div>
+      <br/>
   {% endblock %}
 
+  <div class="clearfix"></div>
+  <br/>
+  <br/>
+  <div class="col-12">
+    <footer>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-text">
+            <a class="nav-link stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> brian.weinfeld@gmail.com</a>
+            <b>Brian Weinfeld</b>
+            <br/>
+            <b>Vancouver, BC</b>
+            <br/>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
   {{ moment.include_jquery() }}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

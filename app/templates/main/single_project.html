@@ -10,14 +10,17 @@
     <div class="container-fluid">
       <div class="col-offset-1 col-12">
         <div class="jumbotron">
-          <h1>
+          <h1 class="d-none d-md-block">
             {{ project.title|title }}
           </h1>
+          <h4 class="d-md-none">
+            {{ project.title|title }}
+          </h4>
         </div>
       </div>
       {{ modal.flash(get_flashed_messages(with_categories=true)) }}
     </div>
-    <div class="col-offset-1 col-12">
+    <div class="col-offset-1 col-12 d-none d-lg-block">
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
           <a class="nav-link {% if prev is none %} stay disabled" href="#"{% else %}" href="{{ url_for('main.display_project', slug=prev.slug) }}"{% endif %}><i class='fa fa-arrow-left fa-x'></i> Previous</a>
@@ -26,8 +29,27 @@
           <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github</a>
+          <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github Repo - {{ project.title }} </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {% if next is none %} stay disabled" href='#' {% else %}" href="{{ url_for('main.display_project', slug=next.slug) }}"{% endif %}>Next <i class='fa fa-arrow-right fa-x'></i></a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-offset-1 col-12 d-xs-block d-lg-none">
+      <ul class="nav nav-pills flex-column" aria-orientation="vertical">
+        <li class="nav-item">
+          <a class="nav-link {% if prev is none %} stay disabled" href="#"{% else %}" href="{{ url_for('main.display_project', slug=prev.slug) }}"{% endif %}><i class='fa fa-arrow-left fa-x'></i> Previous</a>
+        </li>
+        <br/>
+        <li class="nav-item">
+          <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
+        </li>
+        <br/>
+        <li class="nav-item">
+          <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github Repo - {{ project.title }} </a>
+        </li>
+        <br/>
         <li class="nav-item">
           <a class="nav-link {% if next is none %} stay disabled" href='#' {% else %}" href="{{ url_for('main.display_project', slug=next.slug) }}"{% endif %}>Next <i class='fa fa-arrow-right fa-x'></i></a>
         </li>
@@ -37,11 +59,13 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-offset-1 col-12 col-md-9">
-          <div class="card">
+          <div class="card mb-4">
             <div class="card-body">
               <h5 class="card-title">Abstract</h5>
               <div class="card-text">
-                {{ project.abstract }}
+                {% autoescape false %}
+                  {{ project.abstract|replace('\\n', '<br/>') }}
+                {% endautoescape %}
               </div>
             </div>
           </div>
@@ -70,22 +94,32 @@
                 Discussion
               </h5>
               <div class="card-text">
-                {{ project.discussion }}
+                {% autoescape false %}
+                  {{ project.discussion|replace('\\n', '<br/>') }}
+                {% endautoescape %}
               </div>
             </div>
           </div>
         </div>
       </div>
       <br/>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">
-            Video
-          </h5>
-          {{ project.video }}
-          <img src="https://via.placeholder.com/800x600"/>
+      {% if project.video != 'none' %}
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              Video
+            </h5>
+            <div class="d-none d-md-block">
+              <iframe width="560" height="315" src="{{ project.video }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="d-md-none">
+              <a href="{{ project.video }}">{{ project.video }}</a>
+            </div>
+          </div>
         </div>
-      </div>
+      {% endif %}
     </div>
   </div>
+  <br/>
+  <br/>
 {% endblock %}

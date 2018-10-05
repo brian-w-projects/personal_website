@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block content %}
-  {{ modal.build(form) }}
   <div id="page">
     <div class="container-fluid">
       <div class="col-offset-1 col-12">
@@ -13,24 +12,7 @@
           <h1>Resume</h1>
         </div>
       </div>
-      {{ modal.flash(get_flashed_messages(with_categories=true)) }}
-      <div class="col-offset-1 col-12">
-        <ul class="nav nav-pills nav-fill">
-          <li class="nav-item">
-            <a class="nav-link active stay" href="{{ url_for('static', filename='downloads/resume.pdf') }}" target="_blank"><i class='fa fa-download fa-x'></i> Download</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active stay" href="https://www.linkedin.com/in/brian-weinfeld/" target="_blank"><i class='fa fa-linkedin fa-x'></i> Linkedin</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active stay" href="https://www.github.com/brian-w-projects" target="_blank"><i class='fa fa-github fa-x'></i> Github</a>
-          </li>
-        </ul>
-      </div>
-      <br/>
+      {{ super() }}
       <div class="col-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
         <div class="card">
           <div class="card-body resume">
@@ -97,7 +79,4 @@
       </div>
     </div>
   </div>
-  <br/>
-  <br/>
-  <br/>
 {% endblock %}

@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav mr-auto">
         <li class='nav-link {% if request.path == '/' %}active{% endif %}' id='home-link'><a class='nav-link' href={{ url_for('main.index') }}>Home</a></li>
-        <li class='nav-link {%  if request.path == '/projects' %}active{% endif %}' id="projects"><a class='nav-link' href={{ url_for('main.projects') }}>Data Science Projects</a></li>
+        <li class='nav-link {%  if request.path == '/projects' %}active{% endif %}' id="projects"><a class='nav-link' href={{ url_for('main.projects') }}>Portfolio</a></li>
         <li class='nav-link {%  if request.path == '/about-me' %}active{% endif %}' id="about-me"><a class='nav-link' href="{{ url_for('main.about_me') }}">About me</a></li>
         <li class='nav-link {%  if request.path == '/resume' %}active{% endif %}' id="resume"><a class='nav-link' href={{ url_for('main.resume') }}>Resume</a></li>
       </ul>

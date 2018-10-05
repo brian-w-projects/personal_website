@@ -8,7 +8,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" class="needs-validation">
+        <form method="POST" class="needs-validation" action="{{ url_for('main.validate') }}">
           <div class="modal-body">
             <p>I can be reached at brian.weinfeld@gmail.com</p>
             <p>If you would like me to contact you, please complete the form</p>
@@ -21,6 +21,7 @@
             <div class="form-group">
               {{form.information(class='form-control', placeholder='Message')}}
             </div>
+            {{form.next(placeholder=request.path)}}
             {{form.csrf_token}}
           </div>
           <div class="modal-footer">
