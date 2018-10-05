@@ -2,7 +2,7 @@
 
 (function($, window, document){
 
-    var $content = $('a').not('.disabled');
+    var $content = $('a').not('.stay');
 
     NProgress.configure({ showSpinner: false });
     NProgress.set(0.6);

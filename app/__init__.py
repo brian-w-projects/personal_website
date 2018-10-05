@@ -11,11 +11,11 @@ from config import config
 moment = Moment()
 db = SQLAlchemy(query_class=BaseQuery)
 csrf = CSRFProtect()
-login_manager = LoginManager()
+# login_manager = LoginManager()
 #redis_store = Redis()
 #celery = Celery()
-login_manager.session_protection = 'strong'
-login_manager.login_view = 'auth.login'
+# login_manager.session_protection = 'strong'
+# login_manager.login_view = 'auth.login'
 
 
 def create_app(config_name):
@@ -28,7 +28,7 @@ def create_app(config_name):
     #celery.init_app(app)
     db.init_app(app)
     csrf.init_app(app)
-    login_manager.init_app(app)
+    # login_manager.init_app(app)
     sslify = SSLify(app)
 
 

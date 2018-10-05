@@ -8,14 +8,12 @@ class Config:
     def init_app(app):
         pass
 
+
 class DevelopmentConfig(Config):
     DEBUG = True
     SECRET_KEY = 'asdlfasdflkjsdf'
-    REDIS_URL = 'redis://:@localhost:6379/0'
-    CELERY_BROKER_URL = 'redis://:@localhost:6379/0'
-    CELERY_RESULT_BACKEND = 'redis://:@localhost:6379/0'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql://brian:secret@localhost/brian'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:cosmic joke@localhost/site'
 
 
 class DeploymentConfig(Config):

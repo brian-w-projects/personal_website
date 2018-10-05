@@ -31,9 +31,9 @@
               <h5 class="card-title">Small Projects</h5>
               <div class="card-text">
                 <ul>
-                  <li><b>News Service Predictor</b> - Use NLP to determine which news service wrote a tweet based on it's text</li>
-                  <li><b>Hockey Playoff Predictor (10/01/2018)</b> - Machine learning was used to predict which teams will make the playoffs for the 2018-2019 season</li>
-                  <li><b>Font Color Predictor (09/28/2018)</b> - Machine learning was used to determine best font color based on background color</li>
+                  {% for ele in small %}
+                    <li><a href="{{ url_for('main.display_project', slug=ele.slug) }}">{{ ele.title }}</a> {{ ele.published }} - {{ ele.description }}</li>
+                  {% endfor %}
                 </ul>
               </div>
             </div>
@@ -45,7 +45,9 @@
               <h5 class="card-title">Large Projects</h5>
               <div class="card-text">
                 <ul>
-                  <li><b>Blockbuster Movie Boxoffice (06/01/2018)</b> - Data exploration of recent blockbuster movies</li>
+                  {% for ele in large %}
+                    <li><a href="{{ url_for('main.display_project', slug=ele.slug) }}">{{ ele.title }}</a> {{ ele.published }} - Description</li>
+                  {% endfor %}
                 </ul>
               </div>
             </div>

@@ -1,0 +1,91 @@
+{% extends 'macros/base.html' %}
+
+{% block title %}
+  - Project {{ project.title|title }}
+{% endblock %}
+
+{% block content %}
+  {{ modal.build(form) }}
+  <div id="page">
+    <div class="container-fluid">
+      <div class="col-offset-1 col-12">
+        <div class="jumbotron">
+          <h1>
+            {{ project.title|title }}
+          </h1>
+        </div>
+      </div>
+      {{ modal.flash(get_flashed_messages(with_categories=true)) }}
+    </div>
+    <div class="col-offset-1 col-12">
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="nav-link {% if prev is none %} stay disabled" href="#"{% else %}" href="{{ url_for('main.display_project', slug=prev.slug) }}"{% endif %}><i class='fa fa-arrow-left fa-x'></i> Previous</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if next is none %} stay disabled" href='#' {% else %}" href="{{ url_for('main.display_project', slug=next.slug) }}"{% endif %}>Next <i class='fa fa-arrow-right fa-x'></i></a>
+        </li>
+      </ul>
+    </div>
+    <br/>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-offset-1 col-12 col-md-9">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Abstract</h5>
+              <div class="card-text">
+                {{ project.abstract }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tags</h5>
+              <div class="card-text">
+                <ul>
+                  {% for ele in project.tag_list %}
+                    <li>{{ ele.tag.tag }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                Discussion
+              </h5>
+              <div class="card-text">
+                {{ project.discussion }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            Video
+          </h5>
+          {{ project.video }}
+          <img src="https://via.placeholder.com/800x600"/>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

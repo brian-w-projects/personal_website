@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+  {{ modal.build(form) }}
   <div id="page">
     <div class="container-fluid">
       <div class="col-offset-1 col-12">
@@ -12,26 +13,91 @@
           <h1>Resume</h1>
         </div>
       </div>
+      {{ modal.flash(get_flashed_messages(with_categories=true)) }}
       <div class="col-offset-1 col-12">
         <ul class="nav nav-pills nav-fill">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Download</a>
+            <a class="nav-link active stay" href="{{ url_for('static', filename='downloads/resume.pdf') }}" target="_blank"><i class='fa fa-download fa-x'></i> Download</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Contact Me</a>
+            <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#"><i class='fa fa-linkedin fa-x'></i> Linkedin</a>
+            <a class="nav-link active stay" href="https://www.linkedin.com/in/brian-weinfeld/" target="_blank"><i class='fa fa-linkedin fa-x'></i> Linkedin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#"><i class='fa fa-github fa-x'></i> Github</a>
+            <a class="nav-link active stay" href="https://www.github.com/brian-w-projects" target="_blank"><i class='fa fa-github fa-x'></i> Github</a>
           </li>
         </ul>
       </div>
       <br/>
-      <div class="col-offset-1 col-12">
-        <img src="https://via.placeholder.com/1200x1600"/>
+      <div class="col-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
+        <div class="card">
+          <div class="card-body resume">
+            <h2 class="center">Brian Weinfeld</h2>
+            <div class="center">
+              <span><b>Vancouver, BC</b></span>
+              <br/>
+              <span><b>(908) 451-1746</b></span>
+              <br/>
+              <span><b>brian.weinfeld@gmail.com</b></span>
+              <br/>
+              <span><b>www.github.com/brian-w-projects</b></span>
+              <br/>
+              <span><b>my-website.com</b></span>
+            </div>
+            <br/>
+            <p>Talented coder with strong creative vision, team driven professional work environment experience and masterful written, verbal and public speaking abilities.</p>
+            <p class="center"><b>CORE QUALIFICATIONS</b></p>
+            <ul>
+              <li>Programming: Python, R, Java, SQL, Neo4j</li>
+              <li>Web Development: Flask, HTML, CSS, Bootstrap</li>
+              <li>Environments: Linux, Windows and Mac</li>
+              <li>Adept at deciphering and communicating computer science and mathematical concepts</li>
+              <li>Quick to learn and integrate new technologies into existing projects</li>
+            </ul>
+            <p class="center"><b>EDUCATION</b></p>
+            <span><b>City University, New York, NY</b></span>
+            <br/>
+            <span>M.S. in Data Science, School of Professional Studies - Expected 2019, GPA: 4.0</span>
+            <ul>
+              <li>Courses: Data Management, Business Analytics, and Machine Learning & Big Data</li>
+            </ul>
+            <span><b>Ramapo College of New Jersey, Mahwah, NJ</b></span>
+            <br/>
+            <span>M.S. in Educational Technology, Graduate School - December 2016, GPA: 4.0</span>
+            <br/>
+            <br/>
+            <span><b>Rutgers, The State University of New Jersey, New Brunswick, NJ</b></span>
+            <br/>
+            <span>Ed. M. in Mathematics Education, Graduate School of Education - May 2011, GPA: 4.0</span>
+            <br/>
+            <span>B.A. in Computer Science w/ Statistics minor, School of Arts and Sciences - May 2007</span>
+            <br/>
+            <br/>
+            <p class="center"><b>WORK EXPERIENCE</b></p>
+            <span><b>AP Computer Science and AP Statistics Teacher</b></span>
+            <br/>
+            <span>2011-2018</span>
+            <span class="right">Summit Senior High School, Summit, NJ</span>
+            <br/>
+            <span>Directed computer science program as the sole computer science teacher in the district </span>
+            <ul>
+              <li>Designed dynamic project-based learning curricula focusing on OOP and abstraction</li>
+              <li>100% passing rate on all Computer Science and Statistics AP exams </li>
+              <li>Program outreach grew student base from 15 students to over 100 </li>
+              <li> Founder and coach of American Computer Science League (ACSL) competition team</li>
+            </ul>
+            <p class="center"><b>HONORS</b></p>
+            <span><b>Recipient:</b> 2015, 2016, 2017, 2018 National Merit Scholars honoree for Computer Science education </span>
+            <br/>
+            <span><b>Recipient:</b> 2011 Rutgers University Nancy Higginson Dorr Award for showing great promise of being an exceptional teacher</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <br/>
+  <br/>
+  <br/>
 {% endblock %}
