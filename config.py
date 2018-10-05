@@ -18,11 +18,8 @@ class DevelopmentConfig(Config):
 
 class DeploymentConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    # SECRET_KEY = os.environ.get('SECRET_KEY')
-    # REDIS_URL = os.environ.get('REDIS_URL')
-    # CELERY_BROKER_URL = os.environ.get('REDIS_URL')
-    # CELERY_RESULT_BACKEND = os.environ.get('REDIS_URL')
-    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 
 config = {
