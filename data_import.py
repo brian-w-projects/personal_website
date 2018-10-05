@@ -20,7 +20,7 @@ with app.app_context():
         for row in csv.reader(file):
             try:
                 p = Projects(id=row[0], title=row[1], published=datetime.strptime(row[2], '%m/%d/%y'),
-                             link=row[3], slug=slugify(row[1]), small=bool(row[4]), description=row[5],
+                             link=row[3], slug=slugify(row[1]), small=row[4], description=row[5],
                              abstract=row[6], discussion=row[7], video=row[8])
                 db.session.add(p)
                 db.session.commit()
