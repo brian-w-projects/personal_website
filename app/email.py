@@ -6,13 +6,12 @@ import os
 from sendgrid.helpers.mail import *
 
 
-def send_email(**kwargs):
+def send_email(name, email, information):
     app = current_app._get_current_object()
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
     from_email = Email('brian.weinfeld@gmail.com')
     to_email = Email('brian.weinfeld@gmail.com')
     subject = "Personal Website Form Submission"
-    # content = Content('text/plain', render_template('static/email/email.txt', **kwargs))
-    content = Content('text/plain', 'test test test')
+    content = Content('text/plain', f'{name} {email} {information}')
     mail = Mail(from_email, subject, to_email, content)
     sg.client.mail.send.post(request_body=mail.get())
