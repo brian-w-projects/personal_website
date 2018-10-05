@@ -19,7 +19,7 @@ class Projects(db.Model):
     published = db.Column(db.Date, default=datetime.utcnow)
     link = db.Column(db.TEXT)
     slug = db.Column(db.String(100), unique=True)
-    small = db.Column(db.BOOLEAN)
+    small = db.Column(db.INTEGER)
     description = db.Column(db.TEXT)
     abstract = db.Column(db.TEXT)
     discussion = db.Column(db.TEXT)
