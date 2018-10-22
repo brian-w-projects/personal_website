@@ -39,7 +39,9 @@ def projects():
     large = db.session.query(Projects) \
         .filter(Projects.small == 0) \
         .order_by(desc(Projects.id))
-    return render_template('main/projects.html', small=small, large=large, form=form)
+    tags = db.session.query(Tags) \
+        .order_by(Tags.tag)
+    return render_template('main/projects.html', small=small, large=large, form=form, tags=tags)
 
 
 @main.route('/projects/<string:slug>')
@@ -54,6 +56,13 @@ def display_project(slug):
     prev = db.session.query(Projects) \
         .get(project.id - 1)
     return render_template(f'main/single_project.html', project=project, next=next, prev=prev, form=form)
+
+
+@main.route('/api')
+def api1():
+    form = ContactForm(request.form)
+    form.next.data = url_for('main.api1')
+    return render_template('main/api1.html', form=form)
 
 
 @main.route('/form-validate', methods=['POST'])

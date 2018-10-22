@@ -1,0 +1,21 @@
+{% macro build(projects) %}
+<table class="table table-hover responsive-table">
+  <thead>
+    <tr>
+      <th scope="col">Project</th>
+      <th scope="col">Published</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for project in projects %}
+      <tr class="clickable-row {% for ele in project.tag_list %}{{ ele.tag.tag|replace(' ', '-') }} {% endfor %}" data-href="{{ url_for('main.display_project', slug=project.slug) }}">
+        <th scope="row" class="title-width">{{ project.title }} <i class="fa fa-link fa-xl"></i></th>
+        <td data-title='Published' class="published-width">{{ project.published }}</td>
+        <td data-title='Description' class="description-width">{{ project.description }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endmacro %}
+

@@ -1,0 +1,16 @@
+{% macro display(name, url, description) %}
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">
+          <h5>{{ name }}</h5>
+          <h6>{{ url }}</h6>
+        </div>
+        <div class="card-text">
+          {{ description }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+{% endmacro %}

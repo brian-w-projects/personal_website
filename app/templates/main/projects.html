@@ -5,51 +5,66 @@
 {% endblock %}
 
 {% block content %}
+  <link href="{{ url_for('static', filename='main/tables.css') }}" rel="stylesheet"/>
   <div id="page">
     <div class="container-fluid">
-      <div class="col-offset-1 col-12">
+      <div class="col-12">
         <div class="jumbotron">
           <h1>Portfolio</h1>
         </div>
       </div>
       {{ super() }}
-      <div class="col-offset-1 col-12">
-        <div class="card">
-          <div class="card-body">
-            Here you will find a variety of projects of mine from both graduate school and personal work. Each project
-            has a seperate page describing the project, my workflow and the results of the project. There will also
-            be a link to the github repo for the project and a video if necessary.
+      <div class="row">
+        <div class="col-12 col-lg-10">
+          <div class="card">
+            <div class="card-body">
+              Here you will find a variety of projects of mine from both graduate school and personal work. Each project
+              has a seperate page describing the project, my workflow and the results of the project. There will also
+              be a link to the github repo for the project and a video if necessary.
+            </div>
           </div>
         </div>
+        <div class="col-12 col-lg-2 mt-3 mt-lg-0">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">
+                <h5>
+                  Filter Projects
+                </h5>
+              </div>
+              <div class="card-text">
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                  <option selected>Select...</option>
+                  <option value="All">All</option>
+                  {% for tag in tags %}
+                    <option value="{{ tag.tag |replace(' ', '-')}}">{{ tag.tag }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+          </div>
       </div>
     </div>
     <br/>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12 col-lg-6 mb-3">
+        <div class="col-12 col-xl-6 mb-3">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Small Projects</h5>
               <div class="card-text">
-                <ul>
-                  {% for ele in small %}
-                    <li><a href="{{ url_for('main.display_project', slug=ele.slug) }}">{{ ele.title }}</a> {{ ele.published }} - {{ ele.description }}</li>
-                  {% endfor %}
-                </ul>
+                {{ project_display.build(small) }}
               </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-xl-6">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Large Projects</h5>
               <div class="card-text">
-                <ul>
-                  {% for ele in large %}
-                    <li><a href="{{ url_for('main.display_project', slug=ele.slug) }}">{{ ele.title }}</a> {{ ele.published }} - Description</li>
-                  {% endfor %}
-                </ul>
+                {{ project_display.build(large) }}
               </div>
             </div>
           </div>

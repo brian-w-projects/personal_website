@@ -1,7 +1,7 @@
 from . import db
 from datetime import datetime
 from sqlalchemy.orm import backref
-from flask import current_app
+from flask import current_app, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import TimedJSONWebSignatureSerializer as TimedSerializer
 # from . import login_manager
@@ -24,6 +24,21 @@ class Projects(db.Model):
     abstract = db.Column(db.TEXT)
     discussion = db.Column(db.TEXT)
     video = db.Column(db.TEXT)
+
+    def to_json(self):
+        return {
+            'author': 'Brian Weinfeld',
+            'title': self.title,
+            'published': self.published,
+            'github': self.link,
+            'url': url_for('main.display_project', slug=self.slug, _external=True),
+            'description': self.description,
+            'abstract': self.abstract,
+            'discussion': self.discussion,
+            'video': self.video.replace('embed/', 'watch?v='),
+            'tags': {ele.tag.id: ele.tag.tag for ele in self.tag_list}
+        }
+
 
 class Tags(db.Model):
     __tablename__ = 'tags'

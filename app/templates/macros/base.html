@@ -1,5 +1,7 @@
 {% import 'macros/navbar.html' as navbar %}
 {% import 'macros/modal.html' as modal %}
+{% import 'macros/project_display.html' as project_display %}
+{% import 'macros/api1_display.html' as api1 %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,5 +84,6 @@
   <script src="{{ url_for('static', filename='progress/nprogress.js') }}"></script>
   {{ moment.include_moment() }}
   <script src="{{ url_for('static', filename='main/index.js') }}"></script>
+  <script src="{{ url_for('static', filename='main/projects.js') }}"></script>
 </body>
 </html>
