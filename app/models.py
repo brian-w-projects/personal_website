@@ -55,3 +55,14 @@ class Project_tags(db.Model):
     project = db.relationship('Projects', backref=backref('tag_list', lazy='dynamic'))
     tag = db.relationship('Tags', backref=backref('project_list', lazy='dynamic'))
 
+
+class Certifications(db.Model):
+    __tablename__ = 'certifications'
+    id = db.Column(db.INTEGER, primary_key=True)
+    name = db.Column(db.String(100), unique=True)
+    exam = db.Column(db.String(50))
+    topic = db.Column(db.String(50))
+    certificate = db.Column(db.Text)
+    date = db.Column(db.Date)
+    info = db.Column(db.Text)
+    description = db.Column(db.Text)

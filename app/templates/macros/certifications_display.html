@@ -1,0 +1,19 @@
+{% macro display(certifications) %}
+  {% for cert in certifications %}
+    <div class="col-12 col-xl-8 offset-xl-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ cert.name }} - {{ cert.exam }}</h5>
+          <h6>Topic: {{ cert.topic }}</h6>
+          <h6>Achieved: {{ cert.date }}</h6>
+          <h6><a class='stay' href="{{ cert.certificate }}" target="_blank">Certificate</a></h6>
+          <h6><a class='stay' href="{{ cert.info }}" target="_blank">Exam Information</a></h6>
+          <div class="card-text">
+            {{ cert.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+  {% endfor %}
+{% endmacro %}

@@ -1,0 +1,21 @@
+{% extends 'macros/base.html' %}
+
+{% block title %}
+  - Certifications
+{% endblock %}
+
+{% block content %}
+  <div id="page">
+    <div class="container-fluid">
+      <div class="col-offset-1 col-12">
+        <div class="jumbotron">
+          <h1>Certifications</h1>
+        </div>
+      </div>
+    </div>
+    {{ super() }}
+    <div class="container-fluid">
+      {{ certifications_display.display(certifications) }}
+    </div>
+  </div>
+{% endblock %}

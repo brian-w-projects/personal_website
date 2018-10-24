@@ -1,7 +1,7 @@
 from flask import render_template, request, jsonify, session, flash, redirect, url_for, current_app
 from . import main
 from .forms import ContactForm
-from ..models import Tags, Project_tags, Projects
+from ..models import Tags, Project_tags, Projects, Certifications
 from .. import db
 from sqlalchemy.sql.expression import desc
 import os
@@ -63,6 +63,15 @@ def api1():
     form = ContactForm(request.form)
     form.next.data = url_for('main.api1')
     return render_template('main/api1.html', form=form)
+
+
+@main.route('/certifications')
+def certifications():
+    form = ContactForm(request.form)
+    form.next.data = url_for('main.certifications')
+    certifications = db.session.query(Certifications) \
+        .all()
+    return render_template('main/certifications.html', form=form, certifications=certifications)
 
 
 @main.route('/form-validate', methods=['POST'])

@@ -13,6 +13,7 @@
         <li class='nav-link {%  if request.path == '/projects' %}active{% endif %}' id="projects"><a class='nav-link' href={{ url_for('main.projects') }}>Portfolio</a></li>
         <li class='nav-link {%  if request.path == '/about-me' %}active{% endif %}' id="about-me"><a class='nav-link' href="{{ url_for('main.about_me') }}">About me</a></li>
         <li class='nav-link {%  if request.path == '/resume' %}active{% endif %}' id="resume"><a class='nav-link' href={{ url_for('main.resume') }}>Resume</a></li>
+        <li class='nav-link {%  if request.path == '/certifications' %}active{% endif %}' id="certifications"><a class='nav-link' href={{ url_for('main.certifications') }}>Certifications</a></li>
         <li class='nav-link {%  if request.path == '/api1' %}active{% endif %}' id="api1"><a class='nav-link' href={{ url_for('main.api1') }}>API</a></li>
       </ul>
     <!--
