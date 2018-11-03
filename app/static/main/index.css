@@ -50,3 +50,9 @@ footer > .card > .card-body{
     text-align: center;
     background-color: #f1f1f1;
 }
+
+@media (min-width: 768px){
+    .cert-display{
+        width: 75%;
+    }
+}

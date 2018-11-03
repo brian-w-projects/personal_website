@@ -64,7 +64,7 @@ with app.app_context():
 
         for row in csv.reader(file):
             try:
-                c = Certifications(id=row[0], name=row[1], exam=row[2], topic=row[3],
+                c = Certifications(id=row[0], name=row[1], image=row[2], topic=row[3],
                                    certificate=row[4], date=datetime.strptime(row[5], '%m/%d/%y'),
                                    info=row[6], description=row[7])
                 db.session.add(c)
