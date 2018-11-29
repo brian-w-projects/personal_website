@@ -6,6 +6,7 @@ from .. import db
 from sqlalchemy.sql.expression import desc
 import os
 from ..email import send_email
+import boto3
 
 
 @main.route('/')
@@ -80,13 +81,22 @@ def validate():
     if form.validate():
         if os.environ.get('CONFIG'):
             send_email(name=form.name.data, email=form.email.data, information=form.information.data)
-        else:
-            print('Success')
-            print(form.name.data)
-            print(form.email.data)
-            print(form.information.data)
         flash('Success! I will be in touch shortly', 'success')
     else:
         flash('Sorry, there was an error. I can be reached at brian.weinfeld@gmail.com Sorry for the inconvenience.',
               'error')
     return redirect(form.next.data or url_for('main.resume'))
+
+
+@main.route('/download')
+def resume_download():
+    s3 = boto3.client(
+        's3',
+        aws_access_key_id=current_app.config['AWS_ACCESS_KEY_ID'],
+        aws_secret_access_key=current_app.config['AWS_SECRET_ACCESS_KEY'],
+    )
+
+    url = s3.generate_presigned_url('get_object',
+                                    Params={'Bucket': current_app.config['FLASKS3_BUCKET_NAME'], 'Key': 'static/downloads/resume.pdf'},
+                                    ExpiresIn=100)
+    return redirect(url, code=302)

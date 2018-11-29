@@ -8,6 +8,7 @@ from config import config
 #from flask_redis import Redis
 #from flask_celery import Celery
 
+
 moment = Moment()
 db = SQLAlchemy(query_class=BaseQuery)
 csrf = CSRFProtect()
