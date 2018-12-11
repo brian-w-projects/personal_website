@@ -56,3 +56,33 @@ footer > .card > .card-body{
         width: 75%;
     }
 }
+
+@media(max-width: 992px){
+    .carousel-item {
+        height: 50vh;
+        width: auto;
+    }
+}
+
+@media(max-width: 1199px) {
+    .carousel-item {
+        height: 50vh;
+        width: auto;
+    }
+}
+
+@media(min-width: 1200px) {
+    .carousel-item {
+        height: 70vh;
+        width: auto;
+    }
+}
+
+.carousel-image{
+    width: 100%;
+    height: auto;
+}
+
+.dark{
+    color: black;
+}
