@@ -1,33 +1,36 @@
+/*All Pages*/
 #page{
     margin-top: 10px;
-}
-
-.nav-pills li {
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.right{
-  float: right;
 }
 
 p.border{
     padding: 5px;
 }
 
-.about-pic{
-    margin-left: 10px;
-}
-
-#inline{
-    display: inline;
-
-}
-
 .disabled:hover{
     cursor: not-allowed;
 }
 
+footer > .card > .card-body{
+    text-align: center;
+    background-color: #f1f1f1;
+}
+/*All Pages*/
+
+/*Navigation*/
+.nav-pills li {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/*Navigation*/
+
+/*About Me*/
+.about-pic{
+    margin-left: 10px;
+}
+/*About Me*/
+
+/*Resume*/
 .resume{
     background-color: #f1f1f1;
 }
@@ -39,35 +42,45 @@ p.border{
 .center{
     text-align: center;
 }
+/*Resume*/
 
+/*Modal*/
 textarea{
     resize: none;
     padding: 5px;
     height: 100px;
 }
+/*Modal*/
 
-footer > .card > .card-body{
-    text-align: center;
-    background-color: #f1f1f1;
-}
-
+/*Certifications*/
 @media (min-width: 768px){
     .cert-display{
         width: 75%;
     }
 }
+/*Certifications*/
 
-@media(max-width: 992px){
-    .carousel-item {
-        height: 50vh;
-        width: auto;
-    }
-}
-
+/*Carousel*/
 @media(max-width: 1199px) {
     .carousel-item {
         height: 50vh;
         width: auto;
+    }
+
+    .line1{
+        font-size: 1.0rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .line2{
+        font-size: 1.0rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .carousel-caption{
+        padding-bottom: 0;
     }
 }
 
@@ -75,6 +88,18 @@ footer > .card > .card-body{
     .carousel-item {
         height: 70vh;
         width: auto;
+    }
+
+    .line1{
+        font-size: 1.75rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .line2{
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.2;
     }
 }
 
@@ -84,5 +109,8 @@ footer > .card > .card-body{
 }
 
 .dark{
-    color: black;
+    background-color: black;
+    display: inline-block;
+    padding: 5px;
 }
+/*Carousel*/

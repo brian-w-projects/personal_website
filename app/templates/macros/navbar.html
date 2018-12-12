@@ -1,7 +1,7 @@
 {% macro build() %}
   <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light">
     <span class="navbar-brand">
-      <img src="{{ url_for('static', filename='favicon/favicon.ico') }}" width="30" height="30" id='inline' class="align-top" alt="">
+      <img src="{{ url_for('static', filename='favicon/favicon.ico') }}" width="30" height="30" class="align-top" alt="">
       Brian's Data Science Site
     </span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,15 +16,6 @@
         <li class='nav-link {%  if request.path == '/certifications' %}active{% endif %}' id="certifications"><a class='nav-link' href={{ url_for('main.certifications') }}>Certifications</a></li>
         <li class='nav-link {%  if request.path == '/api1' %}active{% endif %}' id="api1"><a class='nav-link' href={{ url_for('main.api1') }}>API</a></li>
       </ul>
-    <!--
-      <form id='search-form' class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-            <input id='search-bar' class="form-control" placeholder="Search"/>
-          </div>
-        </div>
-      </form>-->
     </div>
   </nav>
 {% endmacro %}
