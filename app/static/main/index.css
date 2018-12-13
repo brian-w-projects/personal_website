@@ -62,11 +62,6 @@ textarea{
 
 /*Carousel*/
 @media(max-width: 1199px) {
-    .carousel-item {
-        height: 50vh;
-        width: auto;
-    }
-
     .line1{
         font-size: 1.0rem;
         font-weight: 500;
@@ -85,11 +80,6 @@ textarea{
 }
 
 @media(min-width: 1200px) {
-    .carousel-item {
-        height: 70vh;
-        width: auto;
-    }
-
     .line1{
         font-size: 1.75rem;
         font-weight: 500;
@@ -101,11 +91,6 @@ textarea{
         font-weight: 500;
         line-height: 1.2;
     }
-}
-
-.carousel-image{
-    width: 100%;
-    height: auto;
 }
 
 .dark{

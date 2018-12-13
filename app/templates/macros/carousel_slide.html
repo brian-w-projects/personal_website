@@ -1,7 +1,7 @@
 {% macro slide(image1, image2, line1, line2, active) %}
   <div class="carousel-item {{ active }}">
-    <img class="carousel-image d-none d-md-block" src="{{ url_for('static', filename=image2) }}">
-    <img class="carousel-image d-block d-md-none" src="{{ url_for('static', filename=image1) }}">
+    <img class="carousel-image w-100 d-none d-md-block" src="{{ url_for('static', filename=image2) }}">
+    <img class="carousel-image w-100 d-block d-md-none" src="{{ url_for('static', filename=image1) }}">
     <div class="carousel-caption d-block">
       <span class="card dark">
         <p class="line1">{{ line1 }}</p>
