@@ -70,9 +70,10 @@ def api1():
 def certifications():
     form = ContactForm(request.form)
     form.next.data = url_for('main.certifications')
-    certifications = db.session.query(Certifications) \
+    certs = db.session.query(Certifications) \
+        .order_by(desc(Certifications.date)) \
         .all()
-    return render_template('main/certifications.html', form=form, certifications=certifications)
+    return render_template('main/certifications.html', form=form, certifications=certs)
 
 
 @main.route('/form-validate', methods=['POST'])
