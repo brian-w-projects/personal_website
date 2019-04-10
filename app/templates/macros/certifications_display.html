@@ -4,9 +4,9 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">
-            {{ cert.name }} - {{ cert.topic }}
+            {{ cert.name }}
           </h5>
-          <img src="{{ url_for('static', filename='images/'+cert.image) }}" width="80" height="80"
+          <img src="{{ url_for('static', filename='images/certifications/'+cert.image) }}" width="80" height="80"
                class="d-sm-none d-block">
           <div class="float-left cert-display">
             <h6>Achieved: {{ cert.date }}</h6>
@@ -14,7 +14,7 @@
             <h6><a class='stay' href="{{ cert.info }}" target="_blank">Exam Information</a></h6>
             {{ cert.description }}
           </div>
-          <img src="{{ url_for('static', filename='images/'+cert.image) }}" width="160" height="160"
+          <img src="{{ url_for('static', filename='images/certifications/'+cert.image) }}" width="160" height="160"
                class="float-right d-none d-sm-block">
           <div class="clearfix"></div>
         </div>

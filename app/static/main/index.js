@@ -3,20 +3,26 @@
 (function($, window, document){
 
     var $content = $('a').not('.stay');
+    var displayProgress = $(window).width() >= 992;
 
     NProgress.configure({ showSpinner: false });
-    NProgress.set(0.6);
+    if(displayProgress) {
+        NProgress.set(0.6);
+    }
 
     $(function(){
-        NProgress.done();
 
-        $content.on('click', function(){
-           NProgress.start();
-        });
+        if(displayProgress) {
+            NProgress.done();
 
-        $(window).bind('beforeunload', function(){
-           NProgress.start();
-        });
+            $content.on('click', function () {
+                NProgress.start();
+            });
+
+            $(window).bind('beforeunload', function () {
+                NProgress.start();
+            });
+        }
 
     });
 

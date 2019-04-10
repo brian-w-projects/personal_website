@@ -1,5 +1,5 @@
 from app import create_app, db
-from app.models import Tags, Project_tags, Projects, Certifications
+from app.models import Tags, Project_tags, Projects, Certifications, Certificates
 import os
 import csv
 from slugify import slugify
@@ -74,4 +74,21 @@ with app.app_context():
                 print(e)
 
     print('Certifications completed...')
+
+    file = os.path.abspath(os.path.join(folder, 'certificates.csv'))
+    with open(os.path.abspath(file), encoding='utf-8') as file:
+
+        for row in csv.reader(file):
+            try:
+                c = Certificates(id=row[0], name=row[1], company=row[2], image=row[3],
+                                   date=datetime.strptime(row[4], '%m/%d/%y'),
+                                   certificate=row[5], info=row[6])
+                db.session.add(c)
+                db.session.commit()
+            except Exception as e:
+                db.session.rollback()
+                print(e)
+
+    print('Certifications completed...')
+
     print('Finished...')

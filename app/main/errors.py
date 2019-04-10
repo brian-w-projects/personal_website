@@ -1,6 +1,6 @@
 from . import main
-from flask import render_template, request
-
+from flask import render_template, request, url_for
+from .forms import ContactForm
 
 @main.app_errorhandler(400)
 @main.app_errorhandler(403)
@@ -8,4 +8,6 @@ from flask import render_template, request
 @main.app_errorhandler(405)
 @main.app_errorhandler(500)
 def bad_request(e):
-    return render_template('errors/error.html'), 404
+    form = ContactForm(request.form)
+    form.next.data = url_for('main.certificates')
+    return render_template('errors/error.html', form=form), 404

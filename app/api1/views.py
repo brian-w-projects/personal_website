@@ -1,6 +1,6 @@
 from flask import request, jsonify, url_for, send_from_directory, current_app, render_template
 from . import api1
-from ..models import Tags, Project_tags, Projects
+from ..models import Tags, Project_tags, Projects, Certifications, Certificates
 from .. import db
 from sqlalchemy.sql.expression import desc
 import os
@@ -88,7 +88,20 @@ def resume():
 
 @api1.route('/certifications')
 def certifications():
-    response = jsonify({})
+    query = db.session.query(Certifications) \
+        .order_by(desc(Certifications.date)) \
+        .all()
+    response = jsonify({cert.id: cert.to_json() for cert in query})
+    response.code = 200
+    return response
+
+
+@api1.route('/trainings')
+def trainings():
+    query = db.session.query(Certificates) \
+        .order_by(desc(Certificates.date)) \
+        .all()
+    response = jsonify({cert.id: cert.to_json() for cert in query})
     response.code = 200
     return response
 

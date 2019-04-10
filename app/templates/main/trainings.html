@@ -1,0 +1,32 @@
+{% extends 'macros/base.html' %}
+
+{% block title %}
+  - Certificates
+{% endblock %}
+
+{% block content %}
+  <div id="page">
+    <div class="container-fluid">
+      <div class="col-offset-1 col-12">
+        <div class="jumbotron">
+          <h1>Trainings and Certificates</h1>
+        </div>
+      </div>
+      {{ super() }}
+      <div class="col-12 offset-lg-1 col-lg-10 d-none d-md-block">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-text">
+              I believe that it is critical to continually work to ensure my knowledge and experience is at the
+              forefront of current business standards. As such, I make certain to complete a variety of online programs
+              each year to help keep me on top of new data science trends. Here you will find information on the
+              various courses and classes I have completed organized by year.
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/>
+      {{ trainings_display.display(certificates) }}
+    </div>
+  </div>
+{% endblock %}

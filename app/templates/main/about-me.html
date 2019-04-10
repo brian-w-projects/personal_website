@@ -12,108 +12,110 @@
           <h1>About Me</h1>
         </div>
       </div>
-    </div>
-    {{ super() }}
-    <div class="container-fluid">
+      {{ super() }}
       <div class="col-12">
-        <div class="d-none d-md-block">
-          <img class='pull-right about-pic' src="https://via.placeholder.com/300x450"/>
+        <div class="pull-right card about-div d-none d-md-block">
+          <img class='about-pic' src="{{ url_for('static', filename='images/portrait.jpg') }}"/>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">
-              My Story
-            </h5>
-            <div class="card-text">
-              <p>
-              My first goal after graduating college was to spend some time giving back to the community. I had recently
-              read the statistic that nearly half of United States public schools had no computer science program of any
-              kind and I knew right then that I needed to give back to field that had given me so much.
-              </p>
-              <p>
-              I was hired by one of the best public high school’s in the country with a single goal – to create and grow
-              their computer science program. Over the next seven years, acting as the only computer science teacher in
-              the district, I did just that. One course with 12 students quickly became four courses across six sections
-              with over 100 students participating in the program. During this time I achieved a 100% passing rate on
-              all of my student’s Advanced Placement exams and found time to create our competition team and also to
-              teach AP statistics. With my initial goals largely accomplished, I set out to find the next step in my
-              career.
-              </p>
-              <p>
-              Data science has always intrigued me. It feels as if someone took all the skills I had in programming,
-              statistics and public speaking, combined them with the topics that interested me like machine learning,
-              and packaged it all together into a career. I immediately knew the next step I wanted to take.
-              </p>
-              <p>
-              In between all this I always make sure I take the time to appreciate the small things in life. I have a
-              number of hobbies from board games to traveling to adventure sports. I also enjoy personal coding projects
-              and building computers. I love to discuss my favorite science fiction and fantasy properties and my next
-              Comicon costume. I believe it is important to live a well rounded life and I want to experience as much
-              as possible in my professional and personal life.
-              </p>
-            </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            My Story
+          </h5>
+          <div class="card-text">
+            <p>
+            My first goal after graduating college was to spend some time giving back to the community. I had recently
+            read the statistic that nearly half of United States public schools had no computer science program of any
+            kind and I knew right then that I needed to give back to field that had given me so much.
+            </p>
+            <p>
+            I was hired by one of the best public high schools in the country with a single goal – to create and grow
+            their computer science program. Over the next seven years, acting as the only computer science teacher in
+            the district, I did just that. One course with 12 students quickly became four courses across six sections
+            with over 100 students participating in the program. During this time I achieved a 100% passing rate on
+            all of my student’s Advanced Placement exams, found time to create our competition team and also to
+            teach AP statistics. With my initial goals largely accomplished, I set out to find the next step in my
+            career.
+            </p>
+            <p>
+            Data science has always intrigued me. It feels as if someone took all the skills I had in programming,
+            statistics, mathematics and public speaking, combined them with the topics that interested me like machine
+            learning, and packaged it all together into a career. I immediately knew the next step I wanted to take.
+            </p>
+            <p>
+            In between all this I always make sure I take the time to appreciate the small things in life. I have a
+            number of hobbies from board games to traveling to adventure sports. I also enjoy personal coding projects
+            and building computers. I love to discuss my favorite science fiction and fantasy properties and my next
+            Comicon costume. I believe it is important to live a well rounded life and I want to experience as much
+            as possible in my professional and personal life.
+            </p>
           </div>
-        </div>
-        <br/>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">
-              My Hard Skills
-            </h5>
-            <div class="card-text">
-              <p>
-              Since high school I have made computer science a core facet of my daily life. I am a proficient coder in
-              Python (including Pandas, Numpy, Scikit-Learn, etc.), R (including Tidyverse) and MySQL. I have created a
-              number of projects utilizing each of these technologies for graduate classes and as personal projects.
-              In addition, I have substantial experience with Java, the web framework Flask and a number of front end
-              web development technologies and organizational technologies such as Git. I have worked extensively in
-              Windows, Linux and Mac environments.
-              </p>
-              <p>
-              During my 10+ years of post high school education I have taken classes in ‘Data Management’,
-              ‘Business Analytics’, ‘Machine Learning & Big Data’, ‘Advanced Web Design’ and more. I bring with me a
-              broad base of knowledge in a variety of technologies as well as a deep well of knowledge in my core areas
-              of study.
-              </p>
-            </div>
-          </div>
-        </div>
-        <br/>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">
-              My Soft Skills
-            </h5>
-            <div class="card-text">
-              <p>
-              In addition to the above hard skills, I also bring with me a number of core soft skills that will prove
-              valuable. Owing to my years as a public high school teacher, I am a confident public speaker and talented
-              at making presentations in front of crowds of all sizes. My presentations are engaging and fun, yet most
-              importantly informative. I am adept at deciphering complex computer science topics and appropriately
-              presenting them based on the audience.
-              </p>
-              <p>
-              I have a decade of experience working in a professional office environment and interacting with
-              supervisors, bosses and parents. I am a consummate professional in all of my day-to-day interactions.
-              This includes the delicate balance of accomplishing my required job tasks while ensuring that I have made
-              the parent’s of my students as well as my coworkers happy.
-              </p>
-              <p>
-              Finally, more than anything else, I complete the tasks that need to be completed. Ask any of my
-              references about my reputation and they will tell you that I am known as the person who gets things done.
-              You will never have to chase me down to complete a project, submit paperwork, or contact a customer. I
-              take it as a point of personal pride that I see something that needs to be done and I make sure that it
-              gets done to a high level of quality. As an old professor once told me, ‘Early is on time and on time is
-              late.’
-              </p>
-            </div>
-          </div>
-        </div>
-        <br/>
-        <div class="d-xs-block d-sm-none">
-          <img class='about-pic' src="https://via.placeholder.com/300x450"/>
         </div>
       </div>
+      <br/>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            My Hard Skills
+          </h5>
+          <div class="card-text">
+            <p>
+            Since high school I have made computer science a core facet of my daily life. I am proficient in both
+              Python and R (along with their data science libraries) and MySQL. I am also an Oracle Certified
+              Professional Java programmer. From big data technologies to graph databases to Google Cloud Platform, if
+              it has a role in data science odds are that I have practical applied experience with it.
+            </p>
+            <p>
+              I also draw broadly from a background in software development which includes working with technologies
+              like Git and Anaconda. My personal interest in all things programming has also resulted in exploration of
+              Flask and other web development technologies. I often have a personal project or two that I’m working on
+              just to explore something new.
+            </p>
+            <p>
+              During my 10 years of post high school education I have taken classes in ‘Data Management’,
+              ‘Business Analytics’, ‘Machine Learning & Big Data’, ‘Advanced Web Design’, ‘Predictive Analytics’
+              and more. I bring with me a broad base of knowledge in a variety of technologies as well as a deep well
+              of knowledge in my core areas of study. Most importantly, I bring with me a passion for my work and a
+              desire succeed.
+            </p>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            My Soft Skills
+          </h5>
+          <div class="card-text">
+            <p>
+              Owing to my years as a public high school teacher, I am a confident public speaker and talented at making
+              presentations in front of crowds of all sizes. My presentations are engaging and enjoyable without losing
+              sight of the goal of the presentation. I am adept at deciphering complex computer science topics and
+              appropriately presenting them based on the audience.
+            </p>
+            <p>
+              I have a decade of experience working in an office environment and interacting professionally with
+              supervisors, bosses and parents. I am a consummate professional in all of my day-to-day interactions.
+              I am comfortable taking on a lead role or sliding into a preexisting structure. There is no room for ego
+              in a team environment.
+            </p>
+            <p>
+              I have a decade of experience working in an office environment and interacting professionally with
+              supervisors, bosses and parents. I am a consummate professional in all of my day-to-day interactions.
+              I am comfortable taking on a lead role or sliding into a preexisting structure. There is no room for
+              ego in a team environment.
+            </p>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="card d-xs-block d-md-none">
+        <div class="card-body">
+          <img class='about-pic' src="{{ url_for('static', filename='images/portrait.jpg') }}"/>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 {% endblock %}

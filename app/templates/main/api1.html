@@ -39,6 +39,8 @@
       {{ api1.display('All Tags', url_for('api1.tags', _external=True), 'Returns id and name of all Tags') }}
       {{ api1.display('Project Name by Tag ID', url_for('api1.tags_id', tag_id=1, _external=True),
         'Returns id and project name of all Projects that contain Tag by tag id.') }}
+      {{ api1.display('Trainings and Certificates', url_for('api1.trainings', _external=True),
+        'Returns information on my recent trainings and certificates') }}
     </div>
   </div>
 {% endblock %}

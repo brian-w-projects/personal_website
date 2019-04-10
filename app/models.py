@@ -66,3 +66,32 @@ class Certifications(db.Model):
     date = db.Column(db.Date)
     info = db.Column(db.Text)
     description = db.Column(db.Text)
+
+    def to_json(self):
+        return {
+            'name': self.name,
+            'topic': self.topic,
+            'certificate': self.certificate,
+            'date': self.date,
+            'info': self.info,
+            'description': self.description
+        }
+
+
+class Certificates(db.Model):
+    __tablename__ = 'certificates'
+    id = db.Column(db.INTEGER, primary_key=True)
+    name = db.Column(db.String(200), unique=True)
+    company = db.Column(db.String(50))
+    image = db.Column(db.String(50))
+    date = db.Column(db.Date)
+    certificate = db.Column(db.Text)
+    info = db.Column(db.Text)
+
+    def to_json(self):
+        return {
+            'name': self.name,
+            'company': self.company,
+            'date': self.date,
+            'info': self.info
+        }

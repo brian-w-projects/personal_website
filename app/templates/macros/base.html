@@ -3,6 +3,7 @@
 {% import 'macros/project_display.html' as project_display %}
 {% import 'macros/api1_display.html' as api1 %}
 {% import 'macros/certifications_display.html' as certifications_display %}
+{% import 'macros/training_display.html' as trainings_display %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="{{ url_for('static', filename='fontawesome/css/font-awesome.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='main/index.css') }}" rel="stylesheet"/>
+  <link href="{{ url_for('static', filename='main/resume.css') }}" rel="stylesheet"/>
   <link href="{{ url_for('static', filename='progress/nprogress.css') }}" rel="stylesheet"/>
 </head>
 <body>
@@ -25,7 +27,7 @@
       <div class="col-offset-1 col-12 d-none d-lg-block">
         <ul class="nav nav-pills nav-fill">
           <li class="nav-item">
-            <a class="nav-link active stay" href="{{ url_for('main.resume_download') }}" target="_blank"><i class='fa fa-download fa-x'></i> Resume Download</a>
+            <a class="nav-link active stay" href="{{ url_for('static', filename='images/resume.pdf') }}" target="_blank"><i class='fa fa-download fa-x'></i> Resume Download</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
@@ -41,7 +43,7 @@
       <div class="col-offset-1 col-12 d-xs-block d-lg-none">
         <ul class="nav nav-pills flex-column" aria-orientation="vertical">
           <li class="nav-item">
-            <a class="nav-link active stay" href="{{ url_for('main.resume_download') }}" target="_blank"><i class='fa fa-download fa-x'></i> Resume Download</a>
+            <a class="nav-link active stay" href="{{ url_for('static', filename='images/resume.docx') }}" target="_blank"><i class='fa fa-download fa-x'></i> Resume Download</a>
           </li>
           <br/>
           <li class="nav-item">

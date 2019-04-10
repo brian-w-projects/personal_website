@@ -1,7 +1,7 @@
 from flask import render_template, request, jsonify, session, flash, redirect, url_for, current_app
 from . import main
 from .forms import ContactForm
-from ..models import Tags, Project_tags, Projects, Certifications
+from ..models import Tags, Project_tags, Projects, Certifications, Certificates
 from .. import db
 from sqlalchemy.sql.expression import desc
 import os
@@ -76,6 +76,16 @@ def certifications():
     return render_template('main/certifications.html', form=form, certifications=certs)
 
 
+@main.route('/trainings')
+def trainings():
+    form = ContactForm(request.form)
+    form.next.data = url_for('main.trainings')
+    certs = db.session.query(Certificates) \
+        .order_by(desc(Certificates.date)) \
+        .all()
+    return render_template('main/trainings.html', form=form, certificates=certs)
+
+
 @main.route('/form-validate', methods=['POST'])
 def validate():
     form = ContactForm(request.form)
@@ -87,17 +97,3 @@ def validate():
         flash('Sorry, there was an error. I can be reached at brian.weinfeld@gmail.com Sorry for the inconvenience.',
               'error')
     return redirect(form.next.data or url_for('main.resume'))
-
-
-@main.route('/download')
-def resume_download():
-    s3 = boto3.client(
-        's3',
-        aws_access_key_id=current_app.config['AWS_ACCESS_KEY_ID'],
-        aws_secret_access_key=current_app.config['AWS_SECRET_ACCESS_KEY'],
-    )
-
-    url = s3.generate_presigned_url('get_object',
-                                    Params={'Bucket': current_app.config['FLASKS3_BUCKET_NAME'], 'Key': 'static/downloads/resume.pdf'},
-                                    ExpiresIn=100)
-    return redirect(url, code=302)

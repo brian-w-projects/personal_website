@@ -113,7 +113,7 @@
               <iframe width="560" height="315" src="{{ project.video }}" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="d-md-none">
-              <a href="{{ project.video }}">{{ project.video }}</a>
+              <a href="{{ project.video|replace('embed/', 'watch?v=') }}" target="_blank"><h3>VIDEO</h3></a>
             </div>
           </div>
         </div>

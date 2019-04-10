@@ -18,6 +18,14 @@ footer > .card > .card-body{
 /*All Pages*/
 
 /*Navigation*/
+#brand-link{
+    color: black;
+}
+
+#brand-link:hover{
+    text-decoration: none;
+}
+
 .nav-pills li {
     margin-left: 5px;
     margin-right: 5px;
@@ -25,24 +33,29 @@ footer > .card > .card-body{
 /*Navigation*/
 
 /*About Me*/
-.about-pic{
-    margin-left: 10px;
+@media (min-width: 769px) {
+    .about-pic {
+        margin: 10px;
+        display: block;
+        width: 300px;
+        height: 450px;
+    }
+
+    .about-div{
+        margin-left: 10px;
+    }
+}
+
+@media (max-width:768px){
+    .about-pic{
+        margin: 0 auto;
+        display: block;
+        width: 300px;
+        max-width:100%;
+        height: 450px;
+    }
 }
 /*About Me*/
-
-/*Resume*/
-.resume{
-    background-color: #f1f1f1;
-}
-
-.right{
-    float: right;
-}
-
-.center{
-    text-align: center;
-}
-/*Resume*/
 
 /*Modal*/
 textarea{
@@ -59,6 +72,24 @@ textarea{
     }
 }
 /*Certifications*/
+
+/*Trainings*/
+@media (min-width: 768px) {
+    .training-image {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .training-image {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+/*Trainings*/
 
 /*Carousel*/
 @media(max-width: 1199px) {

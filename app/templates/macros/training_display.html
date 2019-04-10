@@ -1,0 +1,21 @@
+{% macro display(certificate) %}
+  {% for cert in certificate %}
+    <div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ cert.name }} - {{ cert.company }}
+          </h5>
+          <div>
+            <h6>Completed: {{ cert.date }}</h6>
+            <h6><a class='stay' href="{{ cert.certificate }}" target="_blank">Training Information</a></h6>
+            {{ cert.info }}
+          </div>
+          <img class='training-image' src="{{ url_for('static', filename='images/certificates/'+cert.image) }}">
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+    <br/>
+  {% endfor %}
+{% endmacro %}
