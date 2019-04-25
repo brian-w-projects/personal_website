@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block content %}
-  {{ modal.build(form) }}
   <div id="page">
     <div class="container-fluid">
       <div class="col-offset-1 col-12">
@@ -18,7 +17,7 @@
           </h4>
         </div>
       </div>
-      {{ modal.flash(get_flashed_messages(with_categories=true)) }}
+      {{ super() }}
     </div>
     <div class="col-offset-1 col-12 d-none d-lg-block">
       <ul class="nav nav-pills nav-fill">
@@ -26,7 +25,7 @@
           <a class="nav-link {% if prev is none %} stay disabled" href="#"{% else %}" href="{{ url_for('main.display_project', slug=prev.slug) }}"{% endif %}><i class='fa fa-arrow-left fa-x'></i> Previous</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
+          <a class="nav-link" href="{{ url_for('main.projects') }}"><i class='fa fa-arrow-up fa-x'></i> Project List</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github Repo - {{ project.title }} </a>
@@ -43,7 +42,7 @@
         </li>
         <br/>
         <li class="nav-item">
-          <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
+          <a class="nav-link" href="{{ url_for('main.projects') }}"><i class='fa fa-arrow-up fa-x'></i> Project List</a>
         </li>
         <br/>
         <li class="nav-item">
@@ -76,7 +75,7 @@
               <h5 class="card-title">Tags</h5>
               <div class="card-text">
                 <ul>
-                  {% for ele in project.tag_list %}
+                  {% for ele in project.tag_list|sort(attribute='tag.tag') %}
                     <li>{{ ele.tag.tag }}</li>
                   {% endfor %}
                 </ul>
