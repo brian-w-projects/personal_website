@@ -8,7 +8,7 @@
   <div id="page">
     {{ super() }}
     <div class="container-fluid">
-      <div class="col-12 offset-lg-1 col-lg-10 d-none d-md-block">
+      <div class="col-12 offset-lg-1 col-lg-10">
         <div class="card">
           <div class="card-body">
             <h3 class="card-title">Welcome to My Data Science Site!</h3>
@@ -23,38 +23,27 @@
     </div>
     <br/>
     <div class="container-fluid">
-      <div id="carousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          {{ carousel.slide('images/1_square.jpg', 'images/1_golden.jpg', 'Quality Time With Cody', 'San Diego, CA', 'active')}}
-          {{ carousel.slide('images/2_square.jpg', 'images/2_golden.jpg', 'Learning To Surf', 'La Jolla, CA', '')}}
-          {{ carousel.slide('images/3_square.jpg', 'images/3_golden.jpg', 'Building My Computer', 'Denville, NJ', '')}}
-          {{ carousel.slide('images/4_square.jpg', 'images/4_golden.jpg', 'Comiccon', 'San Diego, CA', '')}}
-          {{ carousel.slide('images/5_square.jpg', 'images/5_golden.jpg', 'Scuba Diving', 'Turks and Caicos', '')}}
-          {{ carousel.slide('images/6_square.jpg', 'images/6_golden.jpg', 'Fushimi Inari Shrine', 'Kyoto, Japan', '')}}
-          {{ carousel.slide('images/7_square.jpg', 'images/7_golden.jpg', 'Bungee Jumping', 'Los Angeles, CA', '')}}
-          {{ carousel.slide('images/8_square.jpg', 'images/8_golden.jpg', 'Landing In Hawaii', 'Kauai, HW', '')}}
-        </div>
-        <a class="carousel-control-prev stay" href="#carousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next stay" href="#carousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    <div class="container-fluid">
-      <div class="col-12 d-block d-md-none">
-        <br/>
-        <div class="card">
-          <div class="card-body">
-            <div class="card-text">
-              On my site you can find my resume and contact information as well as descriptions of my recent data
-              science projects complete with links to the corresponding Github repos. Take a moment to explore and
-              please feel free to send me a message. I am always happy to discuss my projects!
-            </div>
+      <div class="col-12 offset-lg-1 col-lg-10">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            {{ carousel.slide('images/9_square.jpg', 'images/9_golden.jpg', 'Java "Bean" Weinfeld', 'Vancouver, BC', 'active')}}
+            {{ carousel.slide('images/1_square.jpg', 'images/1_golden.jpg', 'Quality Time With Cody', 'San Diego, CA', '')}}
+            {{ carousel.slide('images/2_square.jpg', 'images/2_golden.jpg', 'Learning To Surf', 'La Jolla, CA', '')}}
+            {{ carousel.slide('images/3_square.jpg', 'images/3_golden.jpg', 'Building My Computer', 'Denville, NJ', '')}}
+            {{ carousel.slide('images/4_square.jpg', 'images/4_golden.jpg', 'Comiccon', 'San Diego, CA', '')}}
+            {{ carousel.slide('images/5_square.jpg', 'images/5_golden.jpg', 'Scuba Diving', 'Turks and Caicos', '')}}
+            {{ carousel.slide('images/6_square.jpg', 'images/6_golden.jpg', 'Fushimi Inari Shrine', 'Kyoto, Japan', '')}}
+            {{ carousel.slide('images/7_square.jpg', 'images/7_golden.jpg', 'Bungee Jumping', 'Los Angeles, CA', '')}}
+            {{ carousel.slide('images/8_square.jpg', 'images/8_golden.jpg', 'Landing In Hawaii', 'Kauai, HW', '')}}
           </div>
+          <a class="carousel-control-prev stay" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next stay" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
     </div>
