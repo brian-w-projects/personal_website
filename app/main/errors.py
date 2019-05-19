@@ -9,5 +9,5 @@ from .forms import ContactForm
 @main.app_errorhandler(500)
 def bad_request(e):
     form = ContactForm(request.form)
-    form.next.data = url_for('main.certificates')
+    form.next.data = url_for('main.index')
     return render_template('errors/error.html', form=form), 404

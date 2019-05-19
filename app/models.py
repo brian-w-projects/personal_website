@@ -27,6 +27,7 @@ class Projects(db.Model):
 
     def to_json(self):
         return {
+            'id': self.id,
             'author': 'Brian Weinfeld',
             'title': self.title,
             'published': self.published,

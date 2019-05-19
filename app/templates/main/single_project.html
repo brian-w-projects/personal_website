@@ -15,6 +15,12 @@
           <h4 class="d-md-none">
             {{ project.title|title }}
           </h4>
+          <h4 class="d-none d-md-block">
+            {{ project.description }}
+          </h4>
+          <h6 class="d-md-none">
+            {{ project.description }}
+          </h6>
         </div>
       </div>
       {{ super() }}
@@ -85,6 +91,24 @@
         </div>
       </div>
       <br/>
+      {% if images|length > 0 %}
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  Image Samples
+                </h5>
+                {% for image in images %}
+                  <img class="project-image"
+                       src="{{ url_for('static', filename='project_images/{}/{}'.format(project.id, image)) }}"/>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <br/>
+      {% endif %}
       <div class="row">
         <div class="col-12">
           <div class="card">

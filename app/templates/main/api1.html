@@ -29,6 +29,7 @@
       {{ api1.display('Contact', url_for('api1.contact', _external=True), 'Returns current contact and resume resource information') }}
       {{ api1.display('Resume', url_for('api1.resume', _external=True), 'Returns a PDF of my current resume') }}
       {{ api1.display('Certifications', url_for('api1.certifications', _external=True), 'Returns information on my current official certifications') }}
+      {{ api1.display('Project Highlights', url_for('api1.highlights', _external=True), 'Returns comprehensive information on all highlighted projects') }}
       {{ api1.display('All Projects', url_for('api1.projects', _external=True), 'Returns comprehensive information on all portfolio projects') }}
       {{ api1.display('Single Project By ID', url_for('api1.project_id', id=1, _external=True),
         'Returns comprehensive information on a single project, identified by ID number.') }}

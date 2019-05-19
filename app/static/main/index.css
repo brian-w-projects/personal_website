@@ -32,6 +32,23 @@ footer > .card > .card-body{
 }
 /*Navigation*/
 
+/* Single Project */
+@media (min-width: 769px){
+    .project-image{
+        width: 48%;
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 769px){
+    .project-image{
+        width: 100%;
+        min-width: 300px;
+    }
+}
+
+/* Single Project */
+
 /*About Me*/
 @media (min-width: 769px) {
     .about-pic {

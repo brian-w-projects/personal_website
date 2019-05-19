@@ -6,7 +6,6 @@ from .. import db
 from sqlalchemy.sql.expression import desc
 import os
 from ..email import send_email
-import boto3
 
 
 @main.route('/')
@@ -36,10 +35,10 @@ def projects():
     form.next.data = url_for('main.projects')
     small = db.session.query(Projects) \
         .filter(Projects.small == 1) \
-        .order_by(desc(Projects.id))
+        .order_by(desc(Projects.published))
     large = db.session.query(Projects) \
         .filter(Projects.small == 0) \
-        .order_by(desc(Projects.id))
+        .order_by(desc(Projects.published))
     tags = db.session.query(Tags) \
         .order_by(Tags.tag)
     return render_template('main/projects.html', small=small, large=large, form=form, tags=tags)
@@ -52,11 +51,23 @@ def display_project(slug):
     project = db.session.query(Projects) \
         .filter(Projects.slug == slug) \
         .one()
+
     next = db.session.query(Projects) \
-        .get(project.id + 1)
+        .filter(Projects.published > project.published) \
+        .order_by(Projects.published) \
+        .first()
+
     prev = db.session.query(Projects) \
-        .get(project.id - 1)
-    return render_template(f'main/single_project.html', project=project, next=next, prev=prev, form=form)
+        .filter(Projects.published < project.published) \
+        .order_by(desc(Projects.published)) \
+        .first()
+
+    path = os.path.join(current_app.static_folder, 'project_images', str(project.id))
+    if os.path.exists(path):
+        images = os.listdir(os.path.join(current_app.static_folder, 'project_images', str(project.id)))
+    else:
+        images = []
+    return render_template(f'main/single_project.html', project=project, next=next, prev=prev, images=images, form=form)
 
 
 @main.route('/api')
