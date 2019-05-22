@@ -24,8 +24,8 @@
 
   {% block content %}
     {{ modal.flash(get_flashed_messages(with_categories=true)) }}
-      <div class="col-offset-1 col-12 d-none d-lg-block">
-        <ul class="nav nav-pills nav-fill">
+      <div class="col-offset-1 col-12 d-none d-md-block">
+        <ul class="nav nav-pills nav-fill static-items">
           <li class="nav-item">
             <a class="nav-link active stay" href="{{ url_for('static', filename='images/resume.pdf') }}" target="_blank"><i class='fa fa-download fa-x'></i> Resume Download</a>
           </li>
@@ -40,26 +40,23 @@
           </li>
         </ul>
       </div>
-      <div class="col-offset-1 col-12 d-xs-block d-lg-none">
-        <ul class="nav nav-pills flex-column" aria-orientation="vertical">
+      <div class="col-offset-1 col-12 d-xs-block d-md-none">
+        <ul class="nav nav-pills flex-column nav-fill static-items" aria-orientation="vertical">
           <li class="nav-item">
             <a class="nav-link active stay" href="{{ url_for('static', filename='images/resume.pdf') }}" target="_blank"><i class='fa fa-download fa-x'></i> Resume Download</a>
           </li>
-          <br/>
           <li class="nav-item">
             <a class="nav-link active stay" href="#" data-toggle="modal" data-target="#exampleModal"><i class='fa fa-envelope fa-x'></i> Send Message</a>
           </li>
-          <br/>
           <li class="nav-item">
             <a class="nav-link active stay" href="https://www.linkedin.com/in/brian-weinfeld/" target="_blank"><i class='fa fa-linkedin fa-x'></i> Linkedin</a>
           </li>
-          <br/>
           <li class="nav-item">
             <a class="nav-link active stay" href="https://www.github.com/brian-w-projects" target="_blank"><i class='fa fa-github fa-x'></i> Github</a>
           </li>
         </ul>
+        <br/>
       </div>
-      <br/>
   {% endblock %}
 
   <div class="clearfix"></div>

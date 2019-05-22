@@ -25,37 +25,34 @@
       </div>
       {{ super() }}
     </div>
-    <div class="col-offset-1 col-12 d-none d-lg-block">
+    <div class="col-offset-1 col-12 d-none d-md-block">
       <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
+        <li class="nav-item directions">
           <a class="nav-link {% if prev is none %} stay disabled" href="#"{% else %}" href="{{ url_for('main.display_project', slug=prev.slug) }}"{% endif %}><i class='fa fa-arrow-left fa-x'></i> Previous</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item directions">
           <a class="nav-link" href="{{ url_for('main.projects') }}"><i class='fa fa-arrow-up fa-x'></i> Project List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github Repo - {{ project.title }} </a>
+          <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github Repo - {{ project.title[:10] }}... </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item directions">
           <a class="nav-link {% if next is none %} stay disabled" href='#' {% else %}" href="{{ url_for('main.display_project', slug=next.slug) }}"{% endif %}>Next <i class='fa fa-arrow-right fa-x'></i></a>
         </li>
       </ul>
     </div>
-    <div class="col-offset-1 col-12 d-xs-block d-lg-none">
-      <ul class="nav nav-pills flex-column" aria-orientation="vertical">
-        <li class="nav-item">
+    <div class="col-offset-1 col-12 d-xs-block d-md-none">
+      <ul class="nav nav-pills flex-column nav-fill static-items" aria-orientation="vertical">
+        <li class="nav-item directions">
           <a class="nav-link {% if prev is none %} stay disabled" href="#"{% else %}" href="{{ url_for('main.display_project', slug=prev.slug) }}"{% endif %}><i class='fa fa-arrow-left fa-x'></i> Previous</a>
         </li>
-        <br/>
-        <li class="nav-item">
+        <li class="nav-item directions">
           <a class="nav-link" href="{{ url_for('main.projects') }}"><i class='fa fa-arrow-up fa-x'></i> Project List</a>
         </li>
-        <br/>
         <li class="nav-item">
-          <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github Repo - {{ project.title }} </a>
+          <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github Repo - {{ project.title[:10] }}... </a>
         </li>
-        <br/>
-        <li class="nav-item">
+        <li class="nav-item directions">
           <a class="nav-link {% if next is none %} stay disabled" href='#' {% else %}" href="{{ url_for('main.display_project', slug=next.slug) }}"{% endif %}>Next <i class='fa fa-arrow-right fa-x'></i></a>
         </li>
       </ul>

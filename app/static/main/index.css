@@ -15,6 +15,15 @@ footer > .card > .card-body{
     text-align: center;
     background-color: #f1f1f1;
 }
+
+.static-items > li{
+    margin-bottom: 10px;
+}
+
+.jumbotron{
+    margin-bottom: 1rem;
+}
+
 /*All Pages*/
 
 /*Navigation*/
@@ -45,6 +54,11 @@ footer > .card > .card-body{
         width: 100%;
         min-width: 300px;
     }
+}
+
+.directions{
+    border: 1px solid #007bff;
+    border-radius: 0.25rem;
 }
 
 /* Single Project */
