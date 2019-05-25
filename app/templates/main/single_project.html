@@ -27,7 +27,7 @@
     </div>
     <div class="col-offset-1 col-12 d-none d-md-block">
       <ul class="nav nav-pills nav-fill">
-        <li class="nav-item directions">
+        <li class="nav-item {% if prev is none %} edge {% else %}directions{% endif %}">
           <a class="nav-link {% if prev is none %} stay disabled" href="#"{% else %}" href="{{ url_for('main.display_project', slug=prev.slug) }}"{% endif %}><i class='fa fa-arrow-left fa-x'></i> Previous</a>
         </li>
         <li class="nav-item directions">
@@ -36,7 +36,7 @@
         <li class="nav-item">
           <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github Repo - {{ project.title[:10] }}... </a>
         </li>
-        <li class="nav-item directions">
+        <li class="nav-item {% if next is none %} edge {% else %}directions{% endif %}">
           <a class="nav-link {% if next is none %} stay disabled" href='#' {% else %}" href="{{ url_for('main.display_project', slug=next.slug) }}"{% endif %}>Next <i class='fa fa-arrow-right fa-x'></i></a>
         </li>
       </ul>
