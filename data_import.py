@@ -19,7 +19,7 @@ with app.app_context():
 
         for row in csv.reader(file):
             try:
-                p = Projects(id=row[0], title=row[1], published=datetime.strptime(row[2], '%m/%d/%y'),
+                p = Projects(title=row[1], published=datetime.strptime(row[2], '%m/%d/%y'),
                              link=row[3], slug=slugify(row[1]), small=row[4], description=row[5],
                              abstract=row[6], discussion=row[7], video=row[8])
                 db.session.add(p)
@@ -28,7 +28,6 @@ with app.app_context():
                 db.session.rollback()
                 print(e)
 
-
     print('Projects completed...')
 
     file = os.path.abspath(os.path.join(folder, 'tags.csv'))
@@ -36,7 +35,7 @@ with app.app_context():
 
         for row in csv.reader(file):
             try:
-                t = Tags(id=row[0], tag=row[1])
+                t = Tags(tag=row[1])
                 db.session.add(t)
                 db.session.commit()
             except Exception as e:
@@ -50,7 +49,7 @@ with app.app_context():
 
         for row in csv.reader(file):
             try:
-                p = Project_tags(id=row[0], project_id=row[1], tag_id=row[2])
+                p = Project_tags(project_id=row[0], tag_id=row[1])
                 db.session.add(p)
                 db.session.commit()
             except Exception as e:
@@ -64,9 +63,9 @@ with app.app_context():
 
         for row in csv.reader(file):
             try:
-                c = Certifications(id=row[0], name=row[1], image=row[2], topic=row[3],
-                                   certificate=row[4], date=datetime.strptime(row[5], '%m/%d/%y'),
-                                   info=row[6], description=row[7])
+                c = Certifications(name=row[0], image=row[1], topic=row[2],
+                                   certificate=row[3], date=datetime.strptime(row[4], '%m/%d/%y'),
+                                   info=row[5], description=row[6])
                 db.session.add(c)
                 db.session.commit()
             except Exception as e:
@@ -80,9 +79,9 @@ with app.app_context():
 
         for row in csv.reader(file):
             try:
-                c = Certificates(id=row[0], name=row[1], company=row[2], image=row[3],
-                                   date=datetime.strptime(row[4], '%m/%d/%y'),
-                                   certificate=row[5], info=row[6])
+                c = Certificates(name=row[0], company=row[1], image=row[2],
+                                   date=datetime.strptime(row[3], '%m/%d/%y'),
+                                   certificate=row[4], info=row[5])
                 db.session.add(c)
                 db.session.commit()
             except Exception as e:

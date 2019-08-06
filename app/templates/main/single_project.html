@@ -33,9 +33,6 @@
         <li class="nav-item directions">
           <a class="nav-link" href="{{ url_for('main.projects') }}"><i class='fa fa-arrow-up fa-x'></i> Project List</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github Repo - {{ project.title[:10] }}... </a>
-        </li>
         <li class="nav-item {% if next is none %} edge {% else %}directions{% endif %}">
           <a class="nav-link {% if next is none %} stay disabled" href='#' {% else %}" href="{{ url_for('main.display_project', slug=next.slug) }}"{% endif %}>Next <i class='fa fa-arrow-right fa-x'></i></a>
         </li>
@@ -49,9 +46,6 @@
         <li class="nav-item directions">
           <a class="nav-link" href="{{ url_for('main.projects') }}"><i class='fa fa-arrow-up fa-x'></i> Project List</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active stay" href="{{ project.link }}" target="_blank"><i class='fa fa-github fa-x'></i> Github Repo - {{ project.title[:10] }}... </a>
-        </li>
         <li class="nav-item directions">
           <a class="nav-link {% if next is none %} stay disabled" href='#' {% else %}" href="{{ url_for('main.display_project', slug=next.slug) }}"{% endif %}>Next <i class='fa fa-arrow-right fa-x'></i></a>
         </li>
@@ -60,13 +54,28 @@
     <br/>
     <div class="container-fluid">
       <div class="row">
+        {% if project.link != "none" %}
+          <div class="offset-md-2 col-12 col-md-8">
+            <ul class="nav nav-pills nav-fill static-items">
+              <li class="nav-item">
+                <a class="nav-link active stay" href="{{ project.link }}" target="_blank">
+                  {% if 'github' in project.link %}
+                    <i class='fa fa-github fa-x'></i> Github Repo - {{ project.title}}
+                  {% else %}
+                    View Project
+                  {% endif %}
+                </a>
+              </li>
+            </ul>
+          </div>
+        {% endif %}
         <div class="col-offset-1 col-12 col-md-9">
           <div class="card mb-4">
             <div class="card-body">
               <h5 class="card-title">Abstract</h5>
               <div class="card-text">
                 {% autoescape false %}
-                  {{ project.abstract|replace('\\n', '<br/>') }}
+                  {{ project.abstract }}
                 {% endautoescape %}
               </div>
             </div>
@@ -115,7 +124,7 @@
               </h5>
               <div class="card-text">
                 {% autoescape false %}
-                  {{ project.discussion|replace('\\n', '<br/>') }}
+                  {{ project.discussion }}
                 {% endautoescape %}
               </div>
             </div>

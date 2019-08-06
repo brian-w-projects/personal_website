@@ -31,7 +31,7 @@ class Projects(db.Model):
             'author': 'Brian Weinfeld',
             'title': self.title,
             'published': self.published,
-            'github': self.link,
+            'repo': self.link,
             'url': url_for('main.display_project', slug=self.slug, _external=True),
             'description': self.description,
             'abstract': self.abstract,
