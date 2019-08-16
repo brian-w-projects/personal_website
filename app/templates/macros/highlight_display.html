@@ -1,0 +1,57 @@
+{% macro display_left(highlight) %}
+  <div class="col-12 offset-lg-0 col-lg-10">
+    <a class='highlight-link' href="{{ url_for('main.display_project', slug=highlight.slug) }}">
+      <div class="card highlight-card">
+        <div class="card-body">
+          <div class="highlight-title">
+            <h3>{{ highlight.title }}  <i class="fa fa-link fa-xl"></i></h3>
+            <h3>{{ highlight.published }}</h3>
+          </div>
+          <h5>{{ highlight.description }}</h5>
+          <br/>
+          <div class="highlight-title h-100">
+            <div class="card-text my-auto">
+              {% autoescape false %}
+                {{ highlight.abstract[0:250] }}...
+              {% endautoescape %}
+            </div>
+            {% if highlight.video != 'none' %}
+              <div class="d-none d-lg-block highlight-video">
+                <iframe width="560" height="315" src="https://youtube.com/embed/{{ highlight.video }}" frameborder="0" allowfullscreen></iframe>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+{% endmacro %}
+
+{% macro display_right(highlight) %}
+  <div class="col-12 offset-lg-2 col-lg-10">
+    <a class='highlight-link' href="{{ url_for('main.display_project', slug=highlight.slug) }}">
+      <div class="card highlight-card">
+        <div class="card-body">
+          <div class="highlight-title">
+            <h3>{{ highlight.published }}</h3>
+            <h3><i class="fa fa-link fa-xl"></i> {{ highlight.title }}</h3>
+          </div>
+          <h5 class="highlight-right">{{ highlight.description }}</h5>
+          <br/>
+          <div class="highlight-title h-100">
+            {% if highlight.video != 'none' %}
+              <div class="d-none d-lg-block highlight-video">
+                <iframe width="560" height="315" src="https://youtube.com/embed/{{ highlight.video }}" frameborder="0" allowfullscreen></iframe>
+              </div>
+            {% endif %}
+            <div class="card-text my-auto">
+              {% autoescape false %}
+                {{ highlight.abstract[0:250] }}...
+              {% endautoescape %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+{% endmacro %}

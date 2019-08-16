@@ -139,10 +139,10 @@
               Video
             </h5>
             <div class="d-none d-md-block">
-              <iframe width="560" height="315" src="{{ project.video }}" frameborder="0" allowfullscreen></iframe>
+              <iframe width="560" height="315" src="https://youtube.com/embed/{{ project.video }}" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="d-md-none">
-              <a href="{{ project.video|replace('embed/', 'watch?v=') }}" target="_blank"><h3>VIDEO</h3></a>
+              <a class='stay' href="https://youtube.com/watch?v={{ project.video }}" target="_blank"><h3>VIDEO</h3></a>
             </div>
           </div>
         </div>

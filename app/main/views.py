@@ -12,7 +12,11 @@ from ..email import send_email
 def index():
     form = ContactForm(request.form)
     form.next.data = url_for('main.index')
-    return render_template('main/index.html', form=form)
+    highlights = db.session.query(Projects) \
+        .filter(Projects.small == 0) \
+        .order_by(desc(Projects.published)) \
+        .limit(5)
+    return render_template('main/index.html', form=form, highlights=highlights)
 
 
 @main.route('/about-me')

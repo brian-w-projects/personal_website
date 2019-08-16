@@ -170,3 +170,39 @@ textarea{
     padding: 5px;
 }
 /*Carousel*/
+
+/* Highlights */
+.highlight-card{
+    background-color: #f8f9fa;
+}
+
+.highlight-card:hover{
+    background-color: rgba(0,0,0,.075);
+}
+
+.highlight-right{
+    text-align: right;
+}
+
+.highlight-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.highlight-link, .highlight-link:hover{
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.highlight-video{
+    margin: 1%;
+}
+/* Highlights */
+
+
+
+
+
+
+
+
