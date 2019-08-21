@@ -10,8 +10,7 @@ from ..email import send_email
 
 @main.route('/')
 def index():
-    form = ContactForm(request.form)
-    form.next.data = url_for('main.index')
+    form = form_creator()
     highlights = db.session.query(Projects) \
         .filter(Projects.small == 0) \
         .order_by(desc(Projects.published)) \
@@ -21,22 +20,19 @@ def index():
 
 @main.route('/about-me')
 def about_me():
-    form = ContactForm(request.form)
-    form.next.data = url_for('main.about_me')
+    form = form_creator()
     return render_template('main/about-me.html', form=form)
 
 
 @main.route('/resume')
 def resume():
-    form = ContactForm(request.form)
-    form.next.data = url_for('main.resume')
+    form = form_creator()
     return render_template('main/resume.html', form=form)
 
 
 @main.route('/projects')
 def projects():
-    form = ContactForm(request.form)
-    form.next.data = url_for('main.projects')
+    form = form_creator()
     small = db.session.query(Projects) \
         .filter(Projects.small == 1) \
         .order_by(desc(Projects.published))
@@ -50,8 +46,8 @@ def projects():
 
 @main.route('/projects/<string:slug>')
 def display_project(slug):
-    form = ContactForm(request.form)
-    form.next.data = url_for('main.display_project', slug=slug)
+    form = form_creator({'slug': slug})
+
     project = db.session.query(Projects) \
         .filter(Projects.slug == slug) \
         .one()
@@ -66,25 +62,18 @@ def display_project(slug):
         .order_by(desc(Projects.published)) \
         .first()
 
-    path = os.path.join(current_app.static_folder, 'project_images', str(project.id))
-    if os.path.exists(path):
-        images = os.listdir(os.path.join(current_app.static_folder, 'project_images', str(project.id)))
-    else:
-        images = []
-    return render_template(f'main/single_project.html', project=project, next=next, prev=prev, images=images, form=form)
+    return render_template(f'main/single_project.html', project=project, next=next, prev=prev, form=form)
 
 
 @main.route('/api')
 def api1():
-    form = ContactForm(request.form)
-    form.next.data = url_for('main.api1')
+    form = form_creator()
     return render_template('main/api1.html', form=form)
 
 
 @main.route('/certifications')
 def certifications():
-    form = ContactForm(request.form)
-    form.next.data = url_for('main.certifications')
+    form = form_creator()
     certs = db.session.query(Certifications) \
         .order_by(desc(Certifications.date)) \
         .all()
@@ -93,8 +82,7 @@ def certifications():
 
 @main.route('/trainings')
 def trainings():
-    form = ContactForm(request.form)
-    form.next.data = url_for('main.trainings')
+    form = form_creator()
     certs = db.session.query(Certificates) \
         .order_by(desc(Certificates.date)) \
         .all()
@@ -112,3 +100,12 @@ def validate():
         flash('Sorry, there was an error. I can be reached at brian.weinfeld@gmail.com Sorry for the inconvenience.',
               'error')
     return redirect(form.next.data or url_for('main.resume'))
+
+
+def form_creator(parameters=None):
+    form = ContactForm(request.form)
+    if parameters is None:
+        form.next.data = url_for(request.endpoint)
+    else:
+        form.next.data = url_for(request.endpoint, **parameters)
+    return form

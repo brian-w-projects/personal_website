@@ -57,6 +57,15 @@ class Project_tags(db.Model):
     tag = db.relationship('Tags', backref=backref('project_list', lazy='dynamic'))
 
 
+class Images(db.Model):
+    __tablename__ = 'images'
+    id = db.Column(db.INTEGER, primary_key=True)
+    project_id = db.Column(db.INTEGER, db.ForeignKey('projects.id'))
+    image = db.Column(db.String(100), unique=True)
+
+    project = db.relationship('Projects', backref=backref('images', lazy='dynamic'))
+
+
 class Certifications(db.Model):
     __tablename__ = 'certifications'
     id = db.Column(db.INTEGER, primary_key=True)
