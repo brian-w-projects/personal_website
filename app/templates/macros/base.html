@@ -21,10 +21,10 @@
 </head>
 <body>
   {{  navbar.build() }}
-  {{ modal.build(form) }}
+{#  {{ modal.build(form) }}#}
 
   {% block content %}
-    {{ modal.flash(get_flashed_messages(with_categories=true)) }}
+{#    {{ modal.flash(get_flashed_messages(with_categories=true)) }}#}
       <div class="col-offset-1 col-12 d-none d-md-block">
         <ul class="nav nav-pills nav-fill static-items">
           <li class="nav-item">
