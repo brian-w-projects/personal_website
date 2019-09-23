@@ -30,7 +30,7 @@ def resume():
     return render_template('main/resume.html', form=form)
 
 
-@main.route('/projects')
+@main.route('/portfolio')
 def projects():
     form = form_creator()
     small = db.session.query(Projects) \
@@ -52,7 +52,7 @@ def display_project(slug):
         .filter(Projects.slug == slug) \
         .one()
 
-    next = db.session.query(Projects) \
+    following = db.session.query(Projects) \
         .filter(Projects.published > project.published) \
         .order_by(Projects.published) \
         .first()
@@ -62,7 +62,7 @@ def display_project(slug):
         .order_by(desc(Projects.published)) \
         .first()
 
-    return render_template(f'main/single_project.html', project=project, next=next, prev=prev, form=form)
+    return render_template(f'main/single_project.html', project=project, next=following, prev=prev, form=form)
 
 
 @main.route('/api')
@@ -89,17 +89,17 @@ def trainings():
     return render_template('main/trainings.html', form=form, certificates=certs)
 
 
-@main.route('/form-validate', methods=['POST'])
-def validate():
-    form = ContactForm(request.form)
-    if form.validate():
-        if os.environ.get('CONFIG'):
-            send_email(name=form.name.data, email=form.email.data, information=form.information.data)
-        flash('Success! I will be in touch shortly', 'success')
-    else:
-        flash('Sorry, there was an error. I can be reached at brian.weinfeld@gmail.com Sorry for the inconvenience.',
-              'error')
-    return redirect(form.next.data or url_for('main.resume'))
+# @main.route('/form-validate', methods=['POST'])
+# def validate():
+#     form = ContactForm(request.form)
+#     if form.validate():
+#         if os.environ.get('CONFIG'):
+#             send_email(name=form.name.data, email=form.email.data, information=form.information.data)
+#         flash('Success! I will be in touch shortly', 'success')
+#     else:
+#         flash('Sorry, there was an error. I can be reached at brian.weinfeld@gmail.com Sorry for the inconvenience.',
+#               'error')
+#     return redirect(form.next.data or url_for('main.resume'))
 
 
 def form_creator(parameters=None):
