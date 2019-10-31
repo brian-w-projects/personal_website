@@ -9,7 +9,7 @@
     background-color: #efefef;
     width: 35%;
     float: left;
-    padding-bottom: 50px;
+    padding-bottom: 350px;
   }
 
   #resume-right{
@@ -132,6 +132,10 @@
     text-justify: inter-word;
   }
 
+  .resume-programming-info{
+    font-size: 18px;
+  }
+
   .resume-capstone-text{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -139,4 +143,8 @@
 
   .resume-honors-size{
     font-size: 18px;
+  }
+
+  p{
+    margin-top: 5px !important;
   }
