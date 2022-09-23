@@ -37,7 +37,7 @@ jmespath==0.9.3
 kombu==4.1.0
 MarkupSafe==1.0
 mongoengine==0.15.3
-protobuf==3.7.1
+protobuf==3.18.3
 psycopg2==2.7.5
 psycopg2-binary==2.7.5
 pyasn1==0.4.5
